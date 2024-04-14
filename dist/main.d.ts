@@ -2,7 +2,7 @@
 import WebGPUContext from './context';
 import WebSRRenderer from "./renderer";
 import NeuralNetwork from "./networks/base_network";
-import { NetworkName } from "./networks/network_list";
+import { NetworkName, DisplayScale } from "./networks/network_list";
 import { Resolution } from "./utils";
 interface WebSRParams {
     source?: HTMLVideoElement | HTMLImageElement | ImageBitmap;
@@ -24,6 +24,7 @@ export default class WebSR {
     resolution: Resolution;
     debug?: boolean;
     source: HTMLVideoElement | HTMLImageElement | ImageBitmap;
+    scale: DisplayScale;
     constructor(params: WebSRParams);
     switchNetwork(network: NetworkName, weights: any): void;
     static initWebGPU(): Promise<GPUDevice | false>;
