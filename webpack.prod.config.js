@@ -1,8 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
-
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
 
 module.exports = {
     entry: [ "./src/main.ts"],
@@ -16,7 +14,6 @@ module.exports = {
         filename: "websr.js"
     },
     module: {
-
         rules: [
             {
                 test: /\.ts?$/,
@@ -32,29 +29,20 @@ module.exports = {
 
             },
         ],
-
     },
-
     plugins: [
-
         new CleanWebpackPlugin({
             cleanStaleWebpackAssets: false
-        }),
-
-
+        })
     ],
     resolve: {
         extensions: [".ts", ".tsx", ".js"]
     },
-
     devServer: {
         static: {
             directory: path.join(__dirname, 'demo'),
         },
         compress: true,
         port: 8000,
-    },
-
-    mode: 'development'
-
+    }
 };
